@@ -1,0 +1,134 @@
+@import './reset.scss';
+// @import './../../assets/css/iconfont/style.css';
+
+// 公共部分
+body {
+	font: 14px/1.5 "PingFang SC","Lantinghei SC","Microsoft YaHei","HanHei SC","Helvetica Neue","Open Sans",Arial,"Hiragino Sans GB","微软雅黑",STHeiti,"WenQuanYi Micro Hei",SimSun,sans-serif;
+	color: #333;
+	background: #f6f6f6;
+	margin: 0; 
+  padding: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+a {
+	color: #409EFF;
+	transition: all .2s ease-in-out;
+}
+.fl{
+	float: left;
+}
+.r{
+	float: right;
+}
+
+.wrap{
+  width: 1000px;
+  margin: 0 auto;
+}
+.main-view{
+  width: 1000px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+.gray{
+	color: #bbb;
+}
+.green, .success{
+	color: #67c23a;
+}
+.warning{
+	color: #e6a23c;
+}
+.danger{
+	color: #f56c6c;
+}
+
+
+.pages{
+	padding: 15px;
+	text-align: right;
+	.page-tips{
+		line-height: 32px;
+	}
+}
+
+::-webkit-input-placeholder {
+	@include placeholder()
+} 
+:-moz-placeholder {
+	@include placeholder()
+} 
+::-moz-placeholder {
+	@include placeholder()
+} 
+:-ms-input-placeholder {
+	@include placeholder()
+}
+
+.clearfix:after {
+	content: " ";
+	display: block;
+	height: 0px;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	*_height: 1%;
+}
+
+.cutText {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+// 定位
+.pa {
+	position: absolute;
+}
+.pr {
+	position: relative;
+}
+.scroll{
+	overflow-y: auto;
+}
+.transition{
+	transition: all 0.3s ease-in-out;
+}
+.card{
+	background: #fff;
+	border-radius: 2px;
+	box-shadow: 0 1px 3px rgba(26,26,26,.1);
+	box-sizing: border-box;
+}
+
+// 导航条
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 6px;
+	// box-shadow: inset 0 0 5px #000;
+	background: #ccc;
+}
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.html{
+	.editormd-preview-container, .editormd-html-preview{
+		padding: 0;
+	}
+}
+
+.cursor{
+	cursor: pointer;
+}
+@import './resetElementUi.scss';
+@import './resetMD.scss';

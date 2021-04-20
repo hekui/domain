@@ -1,0 +1,17 @@
+# 账户相关
+
+# 获取用户信息
+query userInfo {
+  ...userInfoQuery
+}
+
+fragment userInfoQuery on Query {
+  merchantQuery{
+    detail {
+      id
+      authType
+      name
+      balance
+    }
+  }
+}

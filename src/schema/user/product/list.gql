@@ -1,0 +1,55 @@
+# 页面初始化查询所需数据
+query productQuery($page: Pagination_Input!, $product: Product_Input) {
+  productQuery {
+    pageList(page: $page, product: $product) { # 产品列表
+      ...pagelistFields
+    }
+    productStatusList { # 产品状态列表
+      pStatus
+      content
+    }
+  }
+}
+
+# 查询产品列表--分页
+query pageList($page: Pagination_Input!, $product: Product_Input) {
+  productQuery {
+    pageList(page: $page, product: $product) {
+      ...pagelistFields
+    }
+  }
+}
+
+# 改变产品流程状态
+mutation changeProductStatus($id: String!, $pStatus: Int!) {
+  productMutation {
+    changeProductStatus(id: $id, pStatus: $pStatus)
+  }
+}
+
+# 改变产品激活/锁定状态
+mutation changeStatus($id: String!, $status: Int!) {
+  productMutation {
+    changeStatus(id: $id, status: $status)
+  }
+}
+
+## 片段
+fragment pagelistFields on IConnection_ProductType {
+  nodes {
+    id # 产品id
+    productName # 产品名称
+    merchantName # 商家名称
+    status # 产品状态
+    pStatus # 产品审核状态
+    brandName # 品牌名称
+    categoryType { # 产品类型
+      deliveryType # 业务类型1：发货，2：到店，3：上门
+    }
+  }
+  page { # 分页信息
+    curPage
+    pageSize
+    totalRecords
+  }
+}

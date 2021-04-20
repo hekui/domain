@@ -1,0 +1,6 @@
+# 发货
+mutation sendExpress($companyId: String!, $numbers: String!,, $orderId: String!) {
+  orderMutation {
+    deliverGoods(companyId: $companyId, numbers: $numbers, orderId: $orderId)
+  }
+}

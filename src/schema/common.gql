@@ -1,0 +1,8 @@
+# 一些公共的片段
+
+# 分页信息
+fragment page on IPage {
+  curPage
+  pageSize
+  totalRecords
+}

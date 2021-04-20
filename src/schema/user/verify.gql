@@ -1,0 +1,27 @@
+#import '@/schema/common.gql'
+
+# 查询创享码 - 根据创享码查询当前订单所有创享码
+query queryCodesByCode($code: String!, $pagination: Pagination_Input!) {
+  orderQuery {
+    getCodeListByCode (code: $code, pagination: $pagination) {
+      nodes{
+        id
+        code
+        orderNum
+        orderStatus
+        goodsName
+        code
+      }
+      page{
+      	...page
+    	}
+    }
+  }
+}
+
+# 核销创享码
+mutation verifyCodes($codeIds: [String]!) {
+  orderMutation {
+    verifiCode(codeIds: $codeIds)
+  }
+}

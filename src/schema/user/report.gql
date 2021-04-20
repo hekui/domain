@@ -1,0 +1,21 @@
+# 销售数据报表
+query statisticsOrderList($orderParam: StatisticsOrderParam_Input!, $pagination: Pagination_Input!) {
+  orderQuery {
+    statisticsOrderList (orderParam: $orderParam, pagination:$pagination) {
+      nodes {
+        amount
+        goodsId
+        goodsName
+        merchantName
+        orderId
+        orderNum
+        rebateAmount
+      }
+      page {
+        curPage
+        pageSize
+        totalRecords
+      }
+    }
+  }
+}

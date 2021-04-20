@@ -1,0 +1,66 @@
+// body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+//   margin: 0; 
+//   padding: 0;
+// }
+
+button,input,textarea {
+    font: 14px/1.5 "PingFangSC-Light", "Microsoft YaHei",  "\5B8B\4F53", "Helvetica-Bold";
+    text-rendering: optimizeLegibility;
+    outline: none;
+    border: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+fieldset,img {
+    border: 0 none;
+}
+
+address,caption,cite,code,dfn,em,strong,th,var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+strong {
+    font-weight: 800;
+}
+
+// ol,ul,li {
+//     list-style: none outside none;
+// }
+
+h1,h2,h3,h4,h5,h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+input {
+    font-size: 14px;
+    outline: none;
+}
+
+input[type="text"] {
+    padding: 0px 13px;
+    box-sizing: border-box;
+}
+button{
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+input[type="text"]:disabled{
+    color: #333;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}

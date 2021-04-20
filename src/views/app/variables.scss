@@ -1,0 +1,17 @@
+$color-primay: #4585F5;
+
+@mixin placeholder {
+	color:  #BABBC9 !important;
+	font-size: 14px;
+	font-family: PingFangSC-Regular;
+}
+
+@mixin transition {
+	transition: all 0.3s ease-in-out;
+}
+
+@mixin cutText {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

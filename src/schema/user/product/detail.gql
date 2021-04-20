@@ -1,0 +1,64 @@
+# 页面初始化查询所需数据
+query productQuery($id: String!) {
+  productQuery {
+    detailById(id: $id) {
+      ...detailFields
+    }
+  }
+}
+
+# 查询实体产品详情
+query detail($id: String!) {
+  productQuery {
+    detailById(id: $id) {
+      ...detailFields
+    }
+  }
+}
+
+## 片段
+fragment detailFields on ProductType {
+  id # 产品id
+  productName # 产品名称
+  categoryType { # 产品类型
+    deliveryType # 业务类型 1：发货，2：到店，3：上门
+    categoryName # 产品分类（如：手机、电子产品）
+  }
+  brandName # 产品品牌
+  productInfoType { # 产品详情
+    detailsImagesList # 产品介绍图列表
+    images # 产品头图列表
+    introduce # 产品介绍文案
+    spuList { # 基础属性列表
+      standardType # 属性展示的方式：1=单选，2=多选，3=单行文本，4=多行文本，5=最小时间，6=最大时间
+      standardName # label名称
+      optionsValue # 属性值（为输入属性或时间属性时存入值）
+      optionsList { # 属性选项值:多个属性时存在值
+        optionsId
+        optionsValue
+      }
+    }
+    skuList { # 销售属性列表
+      standardType # 属性展示的方式：1=单选，2=多选，3=单行文本，4=多行文本，5=最小时间，6=最大时间
+      standardName # label名称
+      optionsValue # 属性值（为输入属性或时间属性时存入值）
+      optionsList { # 属性选项值:多个属性时存在值
+        optionsId
+        optionsValue
+      }
+    }
+    explain # 使用说明
+  }
+  beginTime # 上架时间
+  endTime # 下架时间
+  indateBeginTime # 有效期起
+  indateEndTime # 有效期止
+  goodsTypeList { # sku 价格库存列表
+    goodsName # 商品名称
+    headImage # 商品图片
+    originalPrice # 原价
+    costPrice # 供价
+    suggestPrice # 建议销售价
+    inventory # 库存
+  }
+}

@@ -1,0 +1,24 @@
+stages:
+  - build
+  - test    
+  - release
+  
+variables:
+  CONTAINER_TEST_IMAGE: docker.chuangjia.me/$CI_PROJECT_PATH
+
+before_script:
+  - set -x
+  #- docker login -u gitlab-ci-token -p $CI_JOB_TOKEN  $CI_REGISTRY
+  - VERSION="`git show --pretty=format:"%h" |head -n 1`"||true
+
+build:
+  stage: build
+  script:
+    - docker build --pull -t $CONTAINER_TEST_IMAGE:$VERSION .
+    - docker push $CONTAINER_TEST_IMAGE:$VERSION
+    - kubectl -n test1 set image deployment/${CI_PROJECT_NAME} ${CI_PROJECT_NAME}=$CONTAINER_TEST_IMAGE:$VERSION
+    - echo "`date "+%Y-%m-%d %H:%M:%S"` 更新 $CONTAINER_TEST_IMAGE:$VERSION" >> /home/gitlab-runner/update.log
+  only:
+    - release
+  tags:
+    - test-build
